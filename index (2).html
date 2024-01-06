@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>2024 나만의 신년 계획</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    html {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bg {
+      background-image: url("https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA4MjlfNjcg%2FMDAxNjkzMzE3NjA3ODE1.S3KKKi0Xri6AH289cKT55TIJQz71ClSbLDBb9iOHmFwg.XmwyQ0qxSCs2rEyYTnSYd1SqiABL3h-l_utbNfPVI1Ug.JPEG.grimmcature%2Foutput_53202798.jpg&type=a340");
+      background-position: center;
+      background-size: cover;
+      margin: auto;
+      width: 360px;
+    }
+
+    .title {
+      background-color: #CBD1DE;
+      border-radius: 10px;
+      color: #636363;
+      text-align: center;
+      padding: 4px 14px;
+    }
+
+    .bucket {
+      width: 160px;
+      height: 160px;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .bucket {
+      background-size: cover;
+      background-position: center;
+      margin: 10px;
+      position: relative;
+
+      /* ë‚´ìš© ê¸€ì”¨ê´€ë ¨ */
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      word-break: keep-all;
+      color: #636363;
+    }
+
+    .img1 {
+      background-image: url('tulip.png');
+      border-radius: 30px;
+    }
+
+    . class='msg center' {
+      color: white !important;
+    }
+
+    .flex-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .done::after {
+      content: "";
+      width: 70%;
+      height: 70%;
+      background-size: cover;
+      background-image: url("https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/done2024.png");
+      background-position: center;
+      position: absolute;
+      top: 20%;
+    }
+
+    .wrap {
+      flex-wrap: wrap;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .msg {
+      margin: -10px 0 30px;
+      color: #636363;
+    }
+  </style>
+
+  </div>
+
+
+</head>
+
+<body class="bg">
+  <h1 class="title">2024년 신년 계획</h1>
+  <p class='msg center'>올해 안에 80%를 달성하지 못할 경우</p>
+  <p class='msg center'>친구 3명에게 밥을 사겠습니다.</p>
+  <div class='flex-row wrap'>
+    <div class='bucket img1 center'>한 달에 3권 이상 읽고 감상문 쓰기</div>
+    <div class='bucket img1 center'>컴활 1급 따기</div>
+    <div class='bucket img1 center'>토익 820 이상</div>
+    <div class='bucket img1 center'>몸무게 50kg까지 빼기</div>
+    <div class='bucket img1 center'>연애하기</div>
+  </div>
+  <script>
+    // 페이지 로드 시 이전 상태 복원
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const buckets = document.querySelectorAll(".bucket");
+      buckets.forEach((bucket, index) => {
+        // 로컬 스토리지에서 상태 읽기
+        const isDone = localStorage.getItem("bucket" + index) === "done";
+        if (isDone) {
+          bucket.classList.add("done");
+        }
+      });
+    });
+
+    // 버킷 리스트 클릭 이벤트
+    const buckets = document.querySelectorAll(".bucket");
+    buckets.forEach((bucket, index) => {
+      bucket.addEventListener("click", function () {
+        // 클래스 토글
+        bucket.classList.toggle("done");
+
+        // 로컬 스토리지에 상태 저장
+        if (bucket.classList.contains("done")) {
+          localStorage.setItem("bucket" + index, "done");
+        } else {
+          localStorage.setItem("bucket" + index, "");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
